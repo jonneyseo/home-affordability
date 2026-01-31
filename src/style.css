@@ -1,0 +1,193 @@
+/* =========================
+   Base Reset
+========================= */
+* {
+    box-sizing: border-box;
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+      Roboto, "Noto Sans KR", "Apple SD Gothic Neo", Arial, sans-serif;
+
+    background: linear-gradient(135deg, #f5f7fa, #e4ebf3);
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: #1f2937;
+  }
+
+  /* =========================
+     Main Card
+  ========================= */
+  .card {
+    width: 100%;
+    max-width: 720px;
+
+    background: #ffffff;
+    border-radius: 16px;
+
+    padding: 28px 32px;
+
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  }
+
+  /* =========================
+     Title
+  ========================= */
+  h1 {
+    margin: 0 0 20px;
+    text-align: center;
+
+    font-size: 1.6rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+
+  h2 {
+    margin: 0 0 12px;
+    font-size: 1.25rem;
+  }
+
+  /* =========================
+     Form Grid
+  ========================= */
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px 20px;
+  }
+
+  @media (max-width: 640px) {
+    .grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* =========================
+     Labels & Inputs
+  ========================= */
+  label {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+
+    font-size: 0.9rem;
+    font-weight: 500;
+  }
+
+  input {
+    height: 42px;
+
+    padding: 0 12px;
+
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+
+    font-size: 1rem;
+
+    transition: border 0.2s, box-shadow 0.2s;
+  }
+
+  input:focus {
+    outline: none;
+    border-color: #2563eb;
+
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+  }
+
+  /* =========================
+     Details (Advanced)
+  ========================= */
+  details {
+    grid-column: 1 / -1;
+
+    margin-top: 6px;
+    padding: 10px 12px;
+
+    background: #f9fafb;
+    border-radius: 8px;
+    border: 1px solid #e5e7eb;
+  }
+
+  summary {
+    cursor: pointer;
+
+    font-weight: 600;
+    font-size: 0.9rem;
+
+    color: #374151;
+  }
+
+  details label {
+    margin-top: 10px;
+  }
+
+  /* =========================
+     Divider
+  ========================= */
+  hr {
+    border: none;
+    border-top: 1px solid #e5e7eb;
+
+    margin: 24px 0;
+  }
+
+  /* =========================
+     Result Section
+  ========================= */
+  section p {
+    margin: 8px 0;
+
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
+  section strong {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #111827;
+  }
+
+  /* =========================
+     Highlight Box
+  ========================= */
+  .result-box {
+    background: #eff6ff;
+    border: 1px solid #bfdbfe;
+
+    padding: 14px 16px;
+    border-radius: 10px;
+
+    margin-top: 12px;
+  }
+
+  /* =========================
+     Warning
+  ========================= */
+  .warning {
+    margin-top: 10px;
+
+    color: #b91c1c;
+    background: #fee2e2;
+
+    padding: 8px 12px;
+    border-radius: 8px;
+
+    font-size: 0.85rem;
+  }
+
+  /* =========================
+     Footer (Optional)
+  ========================= */
+  .footer {
+    margin-top: 20px;
+
+    text-align: center;
+    font-size: 0.8rem;
+    color: #6b7280;
+  }

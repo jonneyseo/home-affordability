@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>집장만 계산기</title>
+    <link rel="stylesheet" href="src/style.css" />
+  </head>
+  <body>
+    <main class="card">
+      <h1>집장만 계산기 (MVP)</h1>
+
+      <section class="grid">
+        <label
+          >다운페이 (CAD)
+          <input id="down_payment" type="number" value="100000" />
+        </label>
+
+        <label
+          >연이율 (%)
+          <input id="interest_rate" type="number" step="0.01" value="3.8" />
+        </label>
+
+        <label
+          >상환기간 (년)
+          <input id="amort_years" type="number" value="30" />
+        </label>
+
+        <label
+          >월 모기지 예산 (CAD)
+          <input id="monthly_budget" type="number" value="3000" />
+        </label>
+
+        <details>
+          <summary>고급 옵션</summary>
+          <label
+            >월 비모기지 비용 합 (세금/관리비/보험 등)
+            <input id="non_mortgage_cost" type="number" value="0" />
+          </label>
+          <label
+            >클로징 비용 (CAD)
+            <input id="closing_cost" type="number" value="0" />
+          </label>
+        </details>
+      </section>
+
+      <hr />
+
+      <section>
+        <h2>결과</h2>
+
+        <div class="result-box">
+          <p>
+            월 모기지 지출:
+            <strong id="out_mortgage_payment"></strong>
+          </p>
+
+          <p>
+            최대 대출 가능액:
+            <strong id="out_max_mortgage"></strong>
+          </p>
+
+          <p>
+            최대 집값:
+            <strong id="out_max_home_price"></strong>
+          </p>
+        </div>
+
+        <p id="warning" class="warning" style="display: none"></p>
+      </section>
+
+      <div class="footer">© 2026 Home Affordability Calculator</div>
+    </main>
+
+    <script type="module" src="src/app.js"></script>
+  </body>
+</html>
