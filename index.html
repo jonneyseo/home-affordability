@@ -12,34 +12,73 @@
 
       <section class="grid">
         <label
-          >다운페이 (CAD)
-          <input id="down_payment" type="number" value="100000" />
+          >현재 집 매도가격 A (CAD)
+          <input id="sale_price_current_home" type="number" value="0" />
         </label>
 
         <label
-          >연이율 (%)
-          <input id="interest_rate" type="number" step="0.01" value="3.8" />
+          >그중 부채금액 B (CAD)
+          <input id="debt_to_payoff" type="number" value="0" />
         </label>
 
         <label
-          >상환기간 (년)
-          <input id="amort_years" type="number" value="30" />
-        </label>
-
-        <label
-          >월 모기지 예산 (CAD)
-          <input id="monthly_budget" type="number" value="3000" />
+          >현재 보유 현금 C (CAD)
+          <input id="cash_on_hand" type="number" value="100000" />
         </label>
 
         <details>
           <summary>고급 옵션</summary>
-          <label
-            >월 비모기지 비용 합 (세금/관리비/보험 등)
+          <label>
+            연이율 (%)
+            <input id="interest_rate" type="number" step="0.01" value="3.8" />
+          </label>
+
+          <label>
+            상환기간 (년)
+            <input id="amort_years" type="number" value="30" />
+          </label>
+
+          <label>
+            월 주거비 예산 (CAD)
+            <!-- 총 예산으로 보고 싶으면 이렇게 -->
+            <input id="monthly_budget" type="number" value="3000" />
+          </label>
+
+          <label>
+            월 비모기지 비용 합 (세금/관리비/보험 등)
             <input id="non_mortgage_cost" type="number" value="0" />
           </label>
+
+          <div class="loan-mode">
+            <label>
+              <input type="radio" name="loan_mode" value="auto" checked />
+              월 예산으로 D 계산
+            </label>
+
+            <label>
+              <input type="radio" name="loan_mode" value="manual" />
+              D를 직접 입력
+            </label>
+          </div>
+
+          <label id="manual_loan_wrap" style="display: none">
+            D 최대 대출 가능액 직접 입력 (CAD)
+            <input id="manual_loan_amount" type="number" value="0" />
+          </label>
+
           <label
-            >클로징 비용 (CAD)
-            <input id="closing_cost" type="number" value="0" />
+            >취득세 E (CAD)
+            <input id="purchase_tax" type="number" value="0" />
+          </label>
+
+          <label
+            >리얼터 수수료 F (% of A)
+            <input id="realtor_fee_pct" type="number" step="0.1" value="0" />
+          </label>
+
+          <label
+            >기타비용 G (CAD)
+            <input id="other_costs" type="number" value="0" />
           </label>
         </details>
       </section>
@@ -50,19 +89,28 @@
         <h2>결과</h2>
 
         <div class="result-box">
+          <p>A 현재 집 매도가격: <strong id="out_A"></strong></p>
+          <p>B 부채금액: <strong id="out_B"></strong></p>
+          <p>A-B 현재 집 자본금액: <strong id="out_equity"></strong></p>
+
+          <p>C 현재 보유 현금: <strong id="out_C"></strong></p>
+
+          <p>월 모기지 지출: <strong id="out_mortgage_payment"></strong></p>
+          <p>D 최대 대출 가능액: <strong id="out_D"></strong></p>
+
+          <p><strong>B+C+D (참고)</strong>: <strong id="out_BCD"></strong></p>
           <p>
-            월 모기지 지출:
-            <strong id="out_mortgage_payment"></strong>
+            <strong>(A-B)+C+D 최대 자산금액</strong>:
+            <strong id="out_max_assets"></strong>
           </p>
 
-          <p>
-            최대 대출 가능액:
-            <strong id="out_max_mortgage"></strong>
-          </p>
+          <p>E 취득세: <strong id="out_E"></strong></p>
+          <p>F 리얼터수수료(계산값): <strong id="out_F"></strong></p>
+          <p>G 기타비용: <strong id="out_G"></strong></p>
 
-          <p>
-            최대 집값:
-            <strong id="out_max_home_price"></strong>
+          <p style="margin-top: 12px">
+            ✅ 비용 차감 후 최대 가용 부동산 금액:
+            <strong id="out_max_affordable"></strong>
           </p>
         </div>
 

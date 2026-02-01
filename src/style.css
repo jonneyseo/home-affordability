@@ -191,3 +191,12 @@
     font-size: 0.8rem;
     color: #6b7280;
   }
+
+  .loan-mode {
+    grid-column: 1 / -1;
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    flex-wrap: wrap;
+    font-size: 0.9rem;
+  }
